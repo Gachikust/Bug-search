@@ -1,0 +1,81 @@
+
+“	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŠ¢´8Ğï›ò¬2J$7a803848-6ed1-4692-a439-8f917b086c55
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êîµò8Òï›ò¬2J$7c870a91-2499-4a28-bc82-6f2965720beb
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êîµò8Òï›ò¬2J$e13b64bf-418b-41c2-ae4f-d0cd82ce51d6
+d
+java:S1643w"Use a StringBuilder instead.(ÓŒ‰îùÿÿÿÿ8âï›ò¬2J$4931b3e2-9c22-46f9-86ef-2ddd15a5c150
+d
+java:S1643x"Use a StringBuilder instead.(µ²‘Ÿÿÿÿÿÿ8âï›ò¬2J$b4669bed-3f7d-4c53-8cf3-dc7d0ec64de7
+_
+java:S1643y"Use a StringBuilder instead.(À¿—Ì8ãï›ò¬2J$f4706665-ac4b-436e-abf7-bb21713b1f68
+d
+java:S1643z"Use a StringBuilder instead.(µ²‘Ÿÿÿÿÿÿ8äï›ò¬2J$f28d36d2-db01-41fe-a53a-3017ff73e5ab
+_
+java:S1643{"Use a StringBuilder instead.(‘Áÿ§8åï›ò¬2J$e76b29cd-49c3-4f21-913a-eb65bcd82791
+d
+java:S1643|"Use a StringBuilder instead.(¡ÜÈùÿÿÿÿ8çï›ò¬2J$b40ca3f2-500f-4703-9da8-0bd3289421b0
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ûş¶8ïï›ò¬2J$f04b7ddd-f14f-40a0-9a06-f89051fe98b8
+¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÇéàÍüÿÿÿÿ8ğï›ò¬2J$5f1316d8-040a-4150-839e-cb1942aad0d8
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ö°ø¤8ñï›ò¬2J$ad4f76a7-6142-4050-b8a2-5341de7b4e47
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ïûä÷8ùï›ò¬2J$a4d3e9db-f8cf-4b6d-982a-96f473c6cda5
+¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(©‹å¤şÿÿÿÿ8ûï›ò¬2J$21843fbe-7110-4959-8ca9-f56e9d184ec2
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(³»ˆµ8üï›ò¬2J$3a68f02b-72f1-4504-99bd-b699fac54bae
+œ	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(§â¢ú8şï›ò¬2J$e3771328-3e1a-4efa-a5ca-7d1af493bb87
+›	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ºîï8ÿï›ò¬2J$d1578f17-4ca8-46a1-b060-94a121e97ab2
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ûş¶8ğ›ò¬2J$21aa98aa-fce3-4328-95fa-296a6c197c0e
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÇéàÍüÿÿÿÿ8‘ğ›ò¬2J$182bde21-3708-4a1c-95d9-d91398e22d01
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ö°ø¤8’ğ›ò¬2J$8cf3c1fd-6fd9-4907-9a56-10ad8544874c
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ö°ø¤8˜ğ›ò¬2J$7ce3dc93-619b-4622-8703-3cef49fbda1f
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Ïûä÷8™ğ›ò¬2J$4bbbea30-8289-469d-9b2b-0ae99613fc0a
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ïûä÷8œğ›ò¬2J$694de765-be39-433d-a22d-7280ef7c71ac
+‰
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(©‹å¤şÿÿÿÿ8œğ›ò¬2J$e764af1e-a49f-4ab7-9edf-e71eca785aa5
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(©‹å¤şÿÿÿÿ8ğ›ò¬2J$f7256b2e-a4cc-4917-b550-fbbbb2740df7
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(³»ˆµ8Ÿğ›ò¬2J$7b164e90-9d7c-4779-a460-b862384775f5
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(³»ˆµ8 ğ›ò¬2J$1d0668d8-cc22-41b3-9cc2-c987cb7615bc
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(§â¢ú8¢ğ›ò¬2J$55068681-db0e-45d5-8de1-10d44586bdd9
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(§â¢ú8¤ğ›ò¬2J$ed5c174c-9729-4547-afaa-0906e3536953
+ƒ
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ºîï8¦ğ›ò¬2J$60bf1369-e9c3-47be-b244-e5ab09847c8c
+‡
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ºîï8§ğ›ò¬2J$217d32e9-7fe8-47b7-ae8b-b25e613cffbd
+š
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(àÒşüøÿÿÿÿ8«ğ›ò¬2J$5766ff59-7d0b-4113-b64a-fcfcfca97cce
+m	java:S106+"+Replace this use of System.out by a logger.(ä·›ù8Ñğ›ò¬2J$acd8ee8d-c3a3-42b4-91b1-27fb58cebee0
+i
+java:S1075+"&Remove this hard-coded path-delimiter.(ä·›ù8Şğ›ò¬2J$47372903-4872-40ac-b2b9-a3c2dc77b167
+i
+java:S1075+"&Remove this hard-coded path-delimiter.(ä·›ù8Şğ›ò¬2J$55297eae-98d6-4439-bb62-eac3eedc1707
+n
+java:S1075,"&Remove this hard-coded path-delimiter.(°²¦Ÿûÿÿÿÿ8áğ›ò¬2J$f1b507fa-6bd1-47f5-b846-9414ff5fd81c
+n
+java:S1075,"&Remove this hard-coded path-delimiter.(°²¦Ÿûÿÿÿÿ8âğ›ò¬2J$0e9e6722-28b5-4d84-a9d0-82200d6f81fc
+l	java:S1062"+Replace this use of System.out by a logger.(œ™À8êğ›ò¬2J$f7b43951-d914-4d05-b11e-3e4787002356
+m	java:S1064"+Replace this use of System.out by a logger.(Ğ¦÷8íğ›ò¬2J$599aa4c8-a9fa-4aec-8497-c4e389b0e1ac
+r	java:S1068"+Replace this use of System.out by a logger.(Å­Ëİúÿÿÿÿ8öğ›ò¬2J$3342268e-3b8e-4da7-828a-347f2d8e6324
+h
+java:S1075:"&Remove this hard-coded path-delimiter.(õó–8øğ›ò¬2J$71434e83-3333-4df7-bb25-4ec3224ac26a
+
+java:S1155>">Use isEmpty() to check whether the collection is empty or not.(à¾²¨8ùğ›ò¬2J$d4d2739b-c865-47ec-9901-68f7a32f7947
+m	java:S106@"+Replace this use of System.out by a logger.(Ì…É‰8ùğ›ò¬2J$9ce4f5e3-0752-4cdf-8892-48fac01e1f46
+
+java:S1155B">Use isEmpty() to check whether the collection is empty or not.(„ğ¤Æ8úğ›ò¬2J$618ce846-74f3-416a-8ea7-fd3ea0b74261
+r	java:S106C"+Replace this use of System.out by a logger.(»ó°Òüÿÿÿÿ8‚ñ›ò¬2J$e71e8d8d-9cc5-42d5-8f14-49e94d0440a9
+m	java:S106I"+Replace this use of System.out by a logger.(ÄÀÂŠ8†ñ›ò¬2J$75d364da-30f8-4f6a-b5ae-da8a0f10ef8e
+r	java:S106u"+Replace this use of System.out by a logger.(£ü®ùüÿÿÿÿ8–ñ›ò¬2J$d7ca7833-5880-41b7-9dc2-0f5c9580f716
+‡
+java:S1155†">Use isEmpty() to check whether the collection is empty or not.(ş·äéıÿÿÿÿ8Ÿñ›ò¬2J$53e55563-fb64-499b-8314-6d3909e954fb
+s	java:S106"+Replace this use of System.out by a logger.(¶®éÓøÿÿÿÿ8¢ñ›ò¬2J$2a8ccb41-9ebd-4557-a2de-d50a18752ad2
+s	java:S106–"+Replace this use of System.out by a logger.(©¡ÇĞüÿÿÿÿ8Åñ›ò¬2J$21f2e9c1-398d-4779-ad7d-93beb5d0c815
+s	java:S106—"+Replace this use of System.out by a logger.(•‚é¯úÿÿÿÿ8Æñ›ò¬2J$246674b3-fe15-43d3-94d9-1bef912a07d6
