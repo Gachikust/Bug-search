@@ -2,31 +2,93 @@ package org.example;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpException;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
+import org.apache.http.client.fluent.Response;
+import org.apache.http.conn.HttpHostConnectException;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.Header;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class AnalyserComparator {
 
-    final static String SonarQubeCookie = "_xsrf=2|8e7c3eb6|37e1e16b4c5a6fe9c2a3ce8cce9f5be4|1728558468; username-localhost-8889=\"2|1:0|10:1728756948|23:username-localhost-8889|44:MjhkOTQ2NTVlZmE5NDUxMDkwMzU3YmRhNGRiZDBlMDY=|d10de9d63012c8e93c896321c9df10a450cdb0c7ee84710112b55a3d84a4afdb\"; username-localhost-8888=\"2|1:0|10:1730129362|23:username-localhost-8888|44:M2FiY2VhMGJkNjZjNDQzYzg1MTgzNWU0NTA5ZmFkMDM=|12c3c76fcdc0abf09050b91f98bf0deb93c0692012dc347a12a162a71890e6b4\"; XSRF-TOKEN=g94cteg49cb91t6st3p6vvmtc4; JWT-SESSION=eyJhbGciOiJIUzI1NiJ9.eyJsYXN0UmVmcmVzaFRpbWUiOjE3MzAxOTExMTY3NjAsInhzcmZUb2tlbiI6Imc5NGN0ZWc0OWNiOTF0NnN0M3A2dnZtdGM0IiwianRpIjoiOWViYmU0MzYtYWIxZS00Y2MzLWExMjItNWU3MDNmNjhkNTEwIiwic3ViIjoiYzE4ODZjNGItMmU3MS00OTlmLTgzMTYtZmE5MDU2OTE1N2VkIiwiaWF0IjoxNzMwMTkxMTE2LCJleHAiOjE3MzA0NTAzMTZ9.EfeXajtUIvF2CS68xRcnFnPFB8VdocjUlMijYxWWQg4";
+    static String SonarQubeCookie = "";
     static String projectName ;
     final static String templatePath = "analyse_result.xlsx";
-    final static String bugsJarPath = "C:\\progs\\bugs\\bugs-dot-jar";
-    final static String PVSPath = "C:\\Users\\kust\\AppData\\Roaming\\PVS-Studio-Java\\7.33.85174\\pvs-studio.jar";
-    final static String jreLibPath = "C:\\Program Files\\Java\\jre1.8.0_421\\lib";
-    final static String SonarScannerPath = "C:\\sonarqube-10.6.0.92116\\sonar-scanner-6.2.0.4584-windows-x64\\bin\\sonar-scanner.bat";
+    final static String bugsJarPath = "bugs-dot-jar";
+    final static String PVSPath = "pvs-studio-java\\7.33.85174\\pvs-studio.jar";
+    final static String SonarScannerPath = "sonarqube-10.6.0.92116\\sonar-scanner-6.2.0.4584-windows-x64\\bin\\sonar-scanner.bat";
     static String analyseResultPath ;
     static Integer analyseLine = 1;
 
     static Sheet sheet;
     static Workbook wb;
+
+    private static void StartSonarQube() throws IOException {
+        ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "StartSonar.bat");
+        processBuilder.directory(new File("sonarqube-10.6.0.92116\\sonarqube-10.6.0.92116\\bin\\windows-x86-64"));
+        Process process = processBuilder.start();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String s = null;
+        while ((s = bufferedReader.readLine()) != null) {
+            System.out.println(s);
+            if(s.contains("SonarQube is operational")){
+                break;
+            }
+        }
+        BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        s = null;
+        while ((s = bufferedReader2.readLine()) != null) {
+            System.out.println(s);
+        }
+    }
+
+    public static void SonarQubeAuth() throws IOException {
+        boolean isAuth=false;
+        try{
+            String request = "http://localhost:9000/api/issues/search";
+            System.out.println(request);
+            Content getResult = Request.Get(request)
+                    .addHeader("cookie", SonarQubeCookie)
+                    .execute().returnContent();
+            System.out.println(getResult);
+            isAuth=true;
+        }catch (HttpResponseException e){
+            isAuth=false;
+        }catch (HttpHostConnectException e){
+            StartSonarQube();
+        }
+        if(!isAuth){
+            String request = "http://localhost:9000/api/authentication/login";
+            System.out.println(request);
+            final Collection<NameValuePair> params = new ArrayList<>();
+            params.add(new BasicNameValuePair("login", "admin"));
+            params.add(new BasicNameValuePair("password", "qweasdzxc123"));
+            HttpResponse getResult = Request.Post(request)
+                    .bodyForm(params, Charset.defaultCharset())
+                    .execute().returnResponse();
+            Header[] strings = getResult.getHeaders("Set-Cookie");
+            String firstHeader = strings[0].getValue();
+            firstHeader = firstHeader.substring(0,firstHeader.indexOf(";"));
+            String secHeader = strings[0].getValue();
+            secHeader = secHeader.substring(0,secHeader.indexOf(";"));
+            AnalyserComparator.SonarQubeCookie = firstHeader+";"+secHeader;
+
+        }
+
+    }
 
     public static void compareAnalyzerOnProject(String projectName) throws IOException, InterruptedException {
         AnalyserComparator.projectName = projectName;
@@ -59,14 +121,15 @@ public class AnalyserComparator {
 
         for (String fileName : branch.getBugsFiles()) {
 
-            String command = "java -jar "+PVSPath+" -s "+bugsJarPath+"\\"+projectName+"\\" + fileName + " -e \""+bugsJarPath+"\\"+projectName+"\" \""+jreLibPath+"\" -j4 -o report.txt -O text";
+            String command = "java -jar ../../"+PVSPath+" -s " + fileName + " -e / -j4 -o report.txt -O text";
 
             System.out.println(new File(bugsJarPath+"\\"+projectName+"\\"+fileName).length());
             if(new File(bugsJarPath+"\\"+projectName+"\\"+fileName).length()>2500000){
                 continue;
             }
-
-            BufferedReader reader = GitUtils.execCommandAndGetReader(SonarScannerPath+" -D\"sonar.sources=" + fileName + "\"", projectName);
+            String SonarQubeCommand = "call ..\\..\\"+SonarScannerPath+" -D\"sonar.sources=" + fileName + "\"";
+            System.out.println(SonarQubeCommand);
+            BufferedReader reader = GitUtils.execCommandAndGetReader(SonarQubeCommand, projectName);
             String s2 = null;
             while ((s2 = reader.readLine()) != null) {
                 System.out.println(s2);

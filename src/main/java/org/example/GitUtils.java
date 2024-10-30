@@ -43,12 +43,18 @@ public class GitUtils {
     }
 
     public static BufferedReader execCommandAndGetReader(String command, String projectName) throws IOException {
-        Process process = Runtime.getRuntime().exec(command,null,new File("C:\\progs\\bugs\\bugs-dot-jar\\"+projectName));
+        ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", command);
+        processBuilder.directory(new File("bugs-dot-jar\\"+projectName));
+        Process process = processBuilder.start();
+        //Process process = Runtime.getRuntime().exec(command,null,new File("bugs-dot-jar\\"+projectName));
+        System.out.println("Working directory:" + "bugs-dot-jar\\"+projectName);
         return new BufferedReader(new InputStreamReader(process.getInputStream()));
     }
 
     public static void checkoutToBranch(String branch,String projectName) throws IOException {
-        BufferedReader bufferedReader = execCommandAndGetReader("git checkout -f " + branch.split("/")[branch.split("/").length-1],projectName);
+        String command = "git checkout -f " + branch.split("/")[branch.split("/").length-1];
+        System.out.println( command);
+        BufferedReader bufferedReader = execCommandAndGetReader(command,projectName);
         String s = null;
         while ((s = bufferedReader.readLine()) != null) {
             System.out.println(s);
