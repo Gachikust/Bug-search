@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.models.Branch;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -47,7 +49,7 @@ public class GitUtils {
         processBuilder.directory(new File("bugs-dot-jar\\"+projectName));
         Process process = processBuilder.start();
         //Process process = Runtime.getRuntime().exec(command,null,new File("bugs-dot-jar\\"+projectName));
-        System.out.println("Working directory:" + "bugs-dot-jar\\"+projectName);
+        //System.out.println("Working directory:" + "bugs-dot-jar\\"+projectName);
         return new BufferedReader(new InputStreamReader(process.getInputStream()));
     }
 
